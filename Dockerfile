@@ -1,4 +1,4 @@
-FROM postgres:11
+FROM postgres:15
 RUN apt-get update -y && \
     apt-get install apt-transport-https curl python-dev python-setuptools gcc make libssl-dev jq -y && \
     easy_install pip \
