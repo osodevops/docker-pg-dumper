@@ -5,19 +5,22 @@ on:
     branches:
       - 'main'
 
+permissions:
+  contents: write
+
 jobs:
   build_push_jupyter_image:
     runs-on: ubuntu-latest
     name: Build the dumper image, push to Docker Hub
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           fetch-depth: '0'
 
       - name: Bump version and push tag
         id: tagging
-        uses: anothrNick/github-tag-action@master
+        uses: anothrNick/github-tag-action@4ed44965e0db8dab2b466a16da04aec3cc312fd8 # v1.75.0
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ORG_REPO_TAG }}
           DEFAULT_BUMP: patch
